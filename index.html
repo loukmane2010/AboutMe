@@ -17,32 +17,35 @@
     <nav id="navbar">
         <div class="logo">LOUKMANE</div>
         <ul id="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" data-i18n="nav-about">About</a></li>
+            <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
+            <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
+            <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+            <li class="lang-switch">
+                <button id="lang-btn">EN</button>
+            </li>
         </ul>
     </nav>
 
     <header id="home">
         <div class="hero-content">
-            <h1>Hi, I'm <span>Loukmane</span></h1>
+            <h1 data-i18n="hero-title">Hi, I'm <span>Loukmane</span></h1>
             <p id="typing-text">Developer | Cybersecurity Enthusiast | Linux Power User</p>
             <div class="hero-btns">
-                <a href="#projects" class="btn">View My Work</a>
+                <a href="#projects" class="btn" data-i18n="hero-btn">View My Work</a>
             </div>
         </div>
     </header>
 
     <section id="about" class="reveal">
-        <h2>About Me</h2>
+        <h2 data-i18n="about-title">About Me</h2>
         <div class="about-content">
-            <p>I am Loukmane, a 16-year-old developer based in Morocco, driven by a deep fascination for the
+            <p data-i18n="about-p1">I am Loukmane, a 16-year-old developer based in Morocco, driven by a deep fascination for the
                 intersection of automation, high-performance systems, and modern web technologies. My journey started
                 with exploring the depths of Linux environments, which fueled my passion for building tools that
                 simplify complex workflows.
             </p>
-            <p style="margin-top: 1rem;">Whether it's crafting intelligent web applications or automating content
+            <p style="margin-top: 1rem;" data-i18n="about-p2">Whether it's crafting intelligent web applications or automating content
                 creation with Python, I strive for elegance in code and efficiency in execution. I am constantly pushing
                 boundaries to bridge the gap between creative problem-solving and technical excellence, always looking
                 for the next challenge to solve.
@@ -51,7 +54,7 @@
     </section>
 
     <section id="skills" class="reveal">
-        <h2>Technical Arsenal</h2>
+        <h2 data-i18n="skills-title">Technical Arsenal</h2>
         <div class="skills-container">
             <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
             <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
@@ -72,23 +75,24 @@
             </div>
         </div>
         <div style="text-align: center; margin-top: 2rem;">
-            <button id="show-more-skills" class="btn" style="padding: 0.6rem 2rem; font-size: 0.9rem;">Show More <i class="fas fa-chevron-down"></i></button>
+            <button id="show-more-skills" class="btn" style="padding: 0.6rem 2rem; font-size: 0.9rem;" data-i18n="show-more">Show More <i class="fas fa-chevron-down"></i></button>
         </div>
     </section>
 
     <section id="projects" class="reveal">
-        <h2>Recent Projects</h2>
+        <h2 data-i18n="projects-title">Recent Projects</h2>
         <div class="project-list">
             <div class="project-item">
                 <div class="project-content">
-                    <h3>Weather Pro | AI Intelligence <span class="coming-soon"
-                            style="font-size: 0.7rem; background: var(--secondary); color: white; padding: 3px 10px; border-radius: 50px; margin-left: 10px; vertical-align: middle; opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;">Coming
+                    <img src="weather_pro_logo.png" alt="Weather Pro Logo" class="project-logo">
+                    <h3><span data-i18n="project1-title">Weather Pro | AI Intelligence</span> <span class="coming-soon"
+                            style="font-size: 0.7rem; background: var(--secondary); color: white; padding: 3px 10px; border-radius: 50px; margin-left: 10px; vertical-align: middle; opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;" data-i18n="coming-soon">Coming
                             Soon</span></h3>
-                    <p>A sophisticated, AI-native weather platform that leverages Google’s Gemini 2.5 Flash to provide
+                    <p data-i18n="project1-desc">A sophisticated, AI-native weather platform that leverages Google’s Gemini 2.5 Flash to provide
                         dynamic and intelligent forecasting. Featuring a premium 'Midnight Aurora' aesthetic with fluid
                         glassmorphism, interactive mapping via Leaflet.js, and a robust Flask backend with automatic API
                         key rotation for seamless reliability.</p>
-                    <a href="" class="btn coming-soon" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Live <i
+                    <a href="" class="btn coming-soon" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" data-i18n="live">Live <i
                             class="fas fa-external-link-alt"></i></a>
                     <a href="#" class="btn coming-soon"
                         style="padding: 0.5rem 1.5rem; font-size: 0.9rem; margin-left: 0.5rem;">GitHub <i
@@ -98,16 +102,17 @@
 
             <div class="project-item">
                 <div class="project-content">
-                    <h3>Shift-End | Power Management</h3>
-                    <p>Shift-End is a desktop power management utility built in Python with PyQt6, designed for users
+                    <img src="shift_end_logo.png" alt="Shift-End Logo" class="project-logo">
+                    <h3><span data-i18n="project2-title">Shift-End | Power Management</span></h3>
+                    <p data-i18n="project2-desc">Shift-End is a desktop power management utility built in Python with PyQt6, designed for users
                         who want precise, automated control over when their computer shuts down, restarts, sleeps, or
                         hibernates — going far beyond what standard OS settings offer.</p>
                     <div class="coming-soon"
                         style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: top;">
-                        <a href="#" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Download <i
+                        <a href="#" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" data-i18n="download">Download <i
                                 class="fas fa-download"></i></a>
                         <p
-                            style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-dim); font-style: italic; opacity: 0.8;">
+                            style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-dim); font-style: italic; opacity: 0.8;" data-i18n="coming-soon">
                             Coming Soon
                         </p>
                     </div>
@@ -117,14 +122,26 @@
                 </div>
             </div>
 
+            <div class="project-item">
+                <div class="project-content">
+                    <img src="sci_calculator_logo.png" alt="Scientific Calculator Logo" class="project-logo">
+                    <h3><span data-i18n="project3-title">Scientific Calculator | Multi-Theme</span></h3>
+                    <p data-i18n="project3-desc">A sleek, fully functional scientific calculator built with vanilla HTML, CSS, and JavaScript. Features 6 unique visual themes (Midnight, Retro, Neumorphic, Elegant, Neon, Light), 12 scientific functions (sin, cos, tan, log, √, x², π, e, x!, and more), keyboard support, and a fully responsive mobile layout.</p>
+                    <a href="https://loukmane2010.github.io/Scientific-Calculator/" target="_blank" class="btn"
+                        style="padding: 0.5rem 1.5rem; font-size: 0.9rem;" data-i18n="live">Live <i class="fas fa-external-link-alt"></i></a>
+                    <a href="https://github.com/loukmane2010/Scientific-Calculator" target="_blank" class="btn"
+                        style="padding: 0.5rem 1.5rem; font-size: 0.9rem; margin-left: 0.5rem;">GitHub <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="contact" class="reveal">
-        <h2>Get In Touch</h2>
+        <h2 data-i18n="contact-title">Get In Touch</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <p>Interested in collaborating or have a project in mind? Reach out and let's build something amazing
+                <p data-i18n="contact-p">Interested in collaborating or have a project in mind? Reach out and let's build something amazing
                     together.</p>
                 <p class="email-container">
                     <i class="fas fa-envelope"></i>
@@ -134,7 +151,6 @@
                     <!-- Add social links here if desired -->
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -149,7 +165,7 @@
 
     <div id="toast" class="toast">
         <i class="fas fa-info-circle"></i>
-        <span>This feature is coming soon!</span>
+        <span data-i18n="toast-msg">This feature is coming soon!</span>
     </div>
 
     <script src="script.js"></script>
