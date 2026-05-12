@@ -130,4 +130,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
     });
+
+    // --- Show More Skills ---
+    const showMoreBtn = document.getElementById('show-more-skills');
+    const extraSkills = document.querySelectorAll('.skill-extra');
+    let isExpanded = false;
+
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            
+            extraSkills.forEach(skill => {
+                skill.style.display = isExpanded ? 'flex' : 'none';
+            });
+
+            showMoreBtn.innerHTML = isExpanded ? 
+                'Show Less <i class="fas fa-chevron-up"></i>' : 
+                'Show More <i class="fas fa-chevron-down"></i>';
+        });
+    }
 });
