@@ -133,16 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Show More Skills ---
     const showMoreBtn = document.getElementById('show-more-skills');
-    const extraSkills = document.querySelectorAll('.skill-extra');
+    const extraSkillsWrapper = document.getElementById('extra-skills-wrapper');
     let isExpanded = false;
 
-    if (showMoreBtn) {
+    if (showMoreBtn && extraSkillsWrapper) {
         showMoreBtn.addEventListener('click', () => {
             isExpanded = !isExpanded;
             
-            extraSkills.forEach(skill => {
-                skill.style.display = isExpanded ? 'flex' : 'none';
-            });
+            extraSkillsWrapper.classList.toggle('open');
 
             showMoreBtn.innerHTML = isExpanded ? 
                 'Show Less <i class="fas fa-chevron-up"></i>' : 

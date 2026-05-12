@@ -307,14 +307,21 @@ h2::after {
     color: var(--text-main);
 }
 
-.skill-extra {
-    display: none;
-    animation: fadeIn 0.5s ease-out forwards;
+.extra-skills-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.extra-skills-wrapper.open {
+    max-height: 1000px; /* Arbitrary large value */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    margin-top: 1rem;
 }
 
 /* Projects */
