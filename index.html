@@ -67,7 +67,7 @@
         <div class="project-list">
             <div class="project-item">
                 <div class="project-content">
-                    <h3>Weather Pro | AI Intelligence <span style="font-size: 0.7rem; background: var(--secondary); color: white; padding: 3px 10px; border-radius: 50px; margin-left: 10px; vertical-align: middle; opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;">Coming Soon</span></h3>
+                    <h3>Weather Pro | AI Intelligence <span class="coming-soon" style="font-size: 0.7rem; background: var(--secondary); color: white; padding: 3px 10px; border-radius: 50px; margin-left: 10px; vertical-align: middle; opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;">Coming Soon</span></h3>
                     <p>A sophisticated, AI-native weather platform that leverages Google’s Gemini 2.5 Flash to provide
                         dynamic and intelligent forecasting. Featuring a premium 'Midnight Aurora' aesthetic with fluid
                         glassmorphism, interactive mapping via Leaflet.js, and a robust Flask backend with automatic API
@@ -87,7 +87,7 @@
                     <p>Shift-End is a desktop power management utility built in Python with PyQt6, designed for users
                         who want precise, automated control over when their computer shuts down, restarts, sleeps, or
                         hibernates — going far beyond what standard OS settings offer.</p>
-                    <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: top;">
+                    <div class="coming-soon" style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: top;">
                         <a href="#" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Download <i
                                 class="fas fa-download"></i></a>
                         <p style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-dim); font-style: italic; opacity: 0.8;">
@@ -129,6 +129,11 @@
             </div>
         </div>
     </footer>
+
+    <div id="toast" class="toast">
+        <i class="fas fa-info-circle"></i>
+        <span>This feature is coming soon!</span>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -112,4 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Coming Soon Notification ---
+    const toast = document.getElementById('toast');
+    const comingSoonElements = document.querySelectorAll('.coming-soon');
+
+    comingSoonElements.forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        });
+    });
 });
