@@ -1,61 +1,70 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ExternalLink, Github, Cloud, Box, Lock, User } from 'lucide-react'
+import { ExternalLink, Github, Activity, Terminal, Calculator, AppWindow, Shield, Box } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
   {
     id: 1,
-    title: 'Modern Weather App',
-    description: 'Auto-detect user location with 5-day forecast, animated weather backgrounds, dark/light mode, interactive UI, loading animations, and map integration.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Weather API'],
-    icon: Cloud,
+    title: 'NetProbe',
+    description: 'Professional Network Analysis Tool featuring device discovery, DNS tools, port scanning, and report exporting. Includes a standalone Windows executable.',
+    tech: ['Python', 'Networking'],
+    icon: Activity,
     color: 'from-blue-500/20 to-cyan-500/20',
     borderColor: 'border-blue-500/30',
     link: '#',
-    github: '#',
+    github: 'https://github.com/loukmane2010/NetProbe',
   },
   {
     id: 2,
-    title: 'Interactive 3D Website',
-    description: 'Immersive 3D animations with smooth scrolling, interactive objects, cinematic transitions, and futuristic UI design.',
-    tech: ['Three.js', 'GSAP', 'JavaScript'],
-    icon: Box,
-    color: 'from-purple-500/20 to-pink-500/20',
-    borderColor: 'border-purple-500/30',
+    title: 'PyLogger',
+    description: 'A Python-based keylogger and system monitoring tool. Designed for educational purposes and system administration.',
+    tech: ['Python'],
+    icon: Terminal,
+    color: 'from-red-500/20 to-orange-500/20',
+    borderColor: 'border-red-500/30',
     link: '#',
-    github: '#',
+    github: 'https://github.com/loukmane2010/PyLogger',
   },
   {
     id: 3,
-    title: 'Password Generator App',
-    description: 'Secure password generation with customizable settings, copy-to-clipboard functionality, and a clean modern UI.',
-    tech: ['Python', 'JavaScript'],
-    icon: Lock,
-    color: 'from-green-500/20 to-emerald-500/20',
-    borderColor: 'border-green-500/30',
-    link: '#',
-    github: '#',
+    title: 'Scientific Calculator',
+    description: 'A multi-themed, responsive web-based scientific calculator featuring advanced mathematical functions, an interactive mode toggle, and fluid mobile design.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    icon: Calculator,
+    color: 'from-purple-500/20 to-pink-500/20',
+    borderColor: 'border-purple-500/30',
+    link: 'https://loukmane2010.github.io/Scientific-Calculator/',
+    github: 'https://github.com/loukmane2010/Calculator',
   },
   {
     id: 4,
-    title: 'Personal Portfolio Website',
-    description: 'Advanced animations, responsive design, glassmorphism UI, and modern interactions for a premium personal brand.',
-    tech: ['React', 'Tailwind CSS', 'GSAP'],
-    icon: User,
-    color: 'from-orange-500/20 to-red-500/20',
-    borderColor: 'border-orange-500/30',
+    title: 'Shift-End',
+    description: 'A cross-platform Windows utility application. Configured with PyInstaller for seamless execution. (Executable download coming soon!)',
+    tech: ['Python', 'PyInstaller'],
+    icon: Box,
+    color: 'from-neon-blue/20 to-neon-purple/20',
+    borderColor: 'border-neon-blue/30',
     link: '#',
-    github: '#',
-  },
+    github: 'https://github.com/loukmane2010/shift-end',
+  }
 ]
 
 export default function Projects() {
   const sectionRef = useRef(null)
   const [hoveredId, setHoveredId] = useState(null)
+  const [notification, setNotification] = useState(null)
+
+  const handleLinkClick = (e, url) => {
+    if (url === '#' || !url) {
+      e.preventDefault()
+      setNotification('This link is coming soon! 🚀')
+      setTimeout(() => setNotification(null), 3000)
+    }
+  }
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -117,10 +126,10 @@ export default function Projects() {
                       <project.icon className="text-white" size={28} />
                     </div>
                     <div className="flex gap-3">
-                      <a href={project.github} className="p-2 glass rounded-lg hover:bg-white/10 transition-colors">
+                      <a href={project.github} onClick={(e) => handleLinkClick(e, project.github)} className="p-2 glass rounded-lg hover:bg-white/10 transition-colors">
                         <Github size={18} className="text-gray-400 hover:text-white" />
                       </a>
-                      <a href={project.link} className="p-2 glass rounded-lg hover:bg-white/10 transition-colors">
+                      <a href={project.link} onClick={(e) => handleLinkClick(e, project.link)} className="p-2 glass rounded-lg hover:bg-white/10 transition-colors">
                         <ExternalLink size={18} className="text-gray-400 hover:text-white" />
                       </a>
                     </div>
@@ -153,6 +162,21 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Notification Toast */}
+      <AnimatePresence>
+        {notification && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 glass-strong px-6 py-3 rounded-full flex items-center gap-3 border border-neon-blue/30 shadow-[0_0_30px_rgba(0,212,255,0.2)]"
+          >
+            <span className="w-2 h-2 rounded-full bg-neon-blue animate-pulse" />
+            <span className="text-white text-sm font-medium">{notification}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

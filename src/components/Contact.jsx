@@ -2,13 +2,12 @@ import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Github, Linkedin, Mail, Send, ArrowUpRight } from 'lucide-react'
+import { Github, Mail, Send, ArrowUpRight } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const socials = [
   { name: 'GitHub', icon: Github, href: 'https://github.com', color: 'hover:text-white' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: 'hover:text-blue-400' },
   { name: 'Email', icon: Mail, href: 'mailto:contact@loukmane.dev', color: 'hover:text-neon-blue' },
 ]
 
